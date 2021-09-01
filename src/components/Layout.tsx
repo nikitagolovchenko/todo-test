@@ -5,6 +5,7 @@ const Wrapper = styled.div`
   width: 100%;
   position: relative;
   overflow: hidden;
+  min-height: 100vh;
 `;
 
 const Container = styled.div`

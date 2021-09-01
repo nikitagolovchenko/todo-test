@@ -21,11 +21,13 @@ export const H3 = styled.h3`
 
 interface ParagraphProps {
   fw?: string;
+  lineThrough?: boolean;
 }
 
 export const Paragraph = styled.p<ParagraphProps>`
   margin: 0 0 ${(props) => props.theme.spacing[1]};
   font-weight: ${(props) => (props.fw ? props.fw : 'normal')};
+  text-decoration: ${props => props.lineThrough ? 'line-through' : 'none'};
   &:last-child {
     margin-bottom: 0;
   }
@@ -53,13 +55,14 @@ export const Input = styled.input`
 interface ButtonProps {
   variant: string;
   circle?: boolean;
+  boxShadow?: boolean;
 }
 
 export const Button = styled.button<ButtonProps>`
   display: inline-block;
   vertical-align: top;
   padding: ${props => props.theme.spacing[1]} ${props => props.theme.spacing[2]};
-  transition: color ${props => props.theme.transition.duration} ${props => props.theme.transition.easing}, background-color ${props => props.theme.transition.duration} ${props => props.theme.transition.easing}, border-color ${props => props.theme.transition.duration} ${props => props.theme.transition.easing};
+  transition: color ${props => props.theme.transition.duration} ${props => props.theme.transition.easing}, background-color ${props => props.theme.transition.duration} ${props => props.theme.transition.easing}, border-color ${props => props.theme.transition.duration} ${props => props.theme.transition.easing}, box-shadow ${props => props.theme.transition.duration} ${props => props.theme.transition.easing};
   border: 2px solid ${props => props.variant === 'primary' ? props.theme.colors.primary : props.variant === 'secondary' ? props.theme.colors.secondary : 'transparent'};
   background-color: ${props => props.variant === 'primary' ? props.theme.colors.primary : props.variant === 'secondary' ? props.theme.colors.secondary : 'transparent'};
   color: ${props => props.theme.colors.light};
@@ -72,6 +75,11 @@ export const Button = styled.button<ButtonProps>`
     background-color: ${props => props.variant === 'primary' ? props.theme.colors.primaryDark : props.variant === 'secondary' ? props.theme.colors.secondaryDark : 'transparent'};
   }
 
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
   ${props => props.circle ? {
     padding: 0,
     width: props.theme.spacing[4],
@@ -81,4 +89,8 @@ export const Button = styled.button<ButtonProps>`
     justifyContent: 'center',
     borderRadius: '50%'
   } : null};
+
+  ${props => props.boxShadow ? {
+    boxShadow: props.variant === 'primary' ? `0 0 15px ${props.theme.colors.primary}` : props.variant === 'secondary' ? `0 0 15px ${props.theme.colors.secondary}` : props.theme.colors.gray
+  } : null}
 `;

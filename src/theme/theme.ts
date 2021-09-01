@@ -9,7 +9,9 @@ const theme: DefaultTheme = {
     secondaryDark: '#c0392b',
     dark: '#34495e',
     light: '#ecf0f1',
-    gray: '#bdc3c7'
+    gray: '#bdc3c7',
+    success: '#1abc9c',
+    error: '#e74c3c'
   },
   spacing: {
     0: '0px',

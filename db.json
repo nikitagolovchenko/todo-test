@@ -1,16 +1,24 @@
 {
   "todos": [
     {
-      "id": 0,
-      "title": "Todo title 1",
-      "text": "todo text text",
-      "completed": false
+      "text": "Создать todo ",
+      "completed": true,
+      "id": 2
     },
     {
-      "id": 1,
-      "title": "Todo title 2",
-      "text": "Text text text",
-      "completed": true
+      "text": "Купить молоко и яйца",
+      "completed": false,
+      "id": 3
+    },
+    {
+      "text": "Todo 3",
+      "completed": true,
+      "id": 4
+    },
+    {
+      "text": "Finish todo app",
+      "completed": true,
+      "id": 5
     }
   ]
 }
